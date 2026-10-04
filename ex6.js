@@ -1,7 +1,15 @@
-let totalCost = (basket, prices) =>
-  Object.keys(basket).reduce(
-    (sum, item) => sum + basket[item] * (prices[item] ?? 0), 0);
-    let basket = { apple: 3, pear: 2, bread: 1 };
-let prices = { apple: 0.5, pear: 0.75, bread: 2 };
+function calculateTotal(basket, prices) {
+  let total = 0;
 
-totalCost(basket, prices); // 5
+  for (const item in basket) {
+    total += basket[item] * prices[item];
+  }
+
+  return total;
+}
+
+// Example usage
+const basket = { apple: 3, bread: 1, milk: 2 };
+const prices = { apple: 0.5, bread: 2.25, milk: 1.1 };
+
+console.log(calculateTotal(basket, prices)); // 5.95
